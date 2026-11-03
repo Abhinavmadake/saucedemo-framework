@@ -10,6 +10,7 @@ class BasePage:
     PATH = ""
     TITLE_TEXT = ""
     TITLE = (By.CSS_SELECTOR, '[data-test="title"]')
+    CART_BADGE = (By.CSS_SELECTOR, '[data-test="shopping-cart-badge"]')
 
     def __init__(self, driver):
         self.driver = driver
@@ -47,6 +48,10 @@ class BasePage:
 
     def title(self):
         return self.text_of(self.TITLE)
+
+    def cart_badge_count(self):
+        badges = self.driver.find_elements(*self.CART_BADGE)
+        return int(badges[0].text) if badges else 0
 
     def is_open(self):
         try:

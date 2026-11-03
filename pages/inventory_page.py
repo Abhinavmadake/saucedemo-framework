@@ -11,7 +11,6 @@ class InventoryPage(BasePage):
     ITEM = (By.CSS_SELECTOR, '[data-test="inventory-item"]')
     ITEM_NAME = (By.CSS_SELECTOR, '[data-test="inventory-item-name"]')
     ITEM_PRICE = (By.CSS_SELECTOR, '[data-test="inventory-item-price"]')
-    CART_BADGE = (By.CSS_SELECTOR, '[data-test="shopping-cart-badge"]')
     CART_LINK = (By.CSS_SELECTOR, '[data-test="shopping-cart-link"]')
     MENU_BUTTON = (By.ID, "react-burger-menu-btn")
     LOGOUT_LINK = (By.CSS_SELECTOR, '[data-test="logout-sidebar-link"]')
@@ -44,10 +43,6 @@ class InventoryPage(BasePage):
 
     def button_text(self, name):
         return self._button(name).text
-
-    def cart_badge_count(self):
-        badges = self.driver.find_elements(*self.CART_BADGE)
-        return int(badges[0].text) if badges else 0
 
     def open_cart(self):
         self.click(self.CART_LINK)
