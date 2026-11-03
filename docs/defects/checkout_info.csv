@@ -1,0 +1,4 @@
+def_id,fr_id,tc_id,summary,steps,expected,actual,severity
+DEF-14-01,FR-14,TC-14-01,Four digit postal code is accepted,"Enter valid first and last name with postal code 1234; click Continue",Validation error displayed and user remains on Checkout: Your Information,"No validation error displayed; user navigated to Checkout: Overview",Medium
+DEF-14-02,FR-14,TC-14-04,Alphabetic postal code is accepted,"Enter valid first and last name with postal code abcde; click Continue",Validation error displayed and user remains on Checkout: Your Information,"No validation error displayed; user navigated to Checkout: Overview",Medium
+DEF-14-03,FR-14,TC-14-05,Mixed alphanumeric postal code is accepted,"Enter valid first and last name with postal code 12ab5; click Continue",Validation error displayed and user remains on Checkout: Your Information,"No validation error displayed; user navigated to Checkout: Overview",Medium

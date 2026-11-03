@@ -1,0 +1,6 @@
+tc_id,technique,postal_code,expected
+TC-14-01,BVA,1234,invalid
+TC-14-02,BVA,12345,valid
+TC-14-03,BVA,123456,valid
+TC-14-04,EP,abcde,invalid
+TC-14-05,EP,12ab5,invalid
