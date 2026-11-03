@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Automation Framework Case Study: SauceDemo</title>
+<style>
+:root {
+  --ink: #1b1f24;
+  --muted: #55606e;
+  --accent: #1f3a68;
+  --rule: #cfd7e4;
+  --fill: #eef2f8;
+  --todo: #fff2a8;
+  --pass: #1d6b3a;
+  --fail: #a32020;
+  --body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: Menlo, Consolas, monospace;
+  /* A4, header across the top, two columns: what we built (left), what we found (right) */
+}
+@page { size: A4; margin: 11mm 12mm; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 8.9pt/1.38 var(--body); color: var(--ink); background: #fff; }
+header { border-bottom: 2px solid var(--accent); padding-bottom: 5pt; margin-bottom: 7pt; }
+h1 { font-size: 16pt; margin: 0 0 2pt; color: var(--accent); text-wrap: balance; }
+.sub { color: var(--muted); margin: 0; }
+.team { margin: 3pt 0 0; }
+.team span { white-space: nowrap; }
+.grid { display: grid; grid-template-columns: 1fr 1.08fr; gap: 0 14pt; }
+h2 { font-size: 10pt; color: var(--accent); margin: 7pt 0 3pt; padding-bottom: 1.5pt; border-bottom: 1px solid var(--rule); }
+p { margin: 2pt 0; }
+ul { margin: 2pt 0; padding-left: 12pt; }
+li { margin: 1pt 0; }
+code, pre { font-family: var(--mono); font-size: 7.6pt; }
+code { background: var(--fill); padding: 0 2pt; border-radius: 2px; white-space: nowrap; }
+pre { background: var(--fill); border-radius: 3px; padding: 4pt 6pt; margin: 3pt 0; line-height: 1.35; white-space: pre; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin: 3pt 0; font-variant-numeric: tabular-nums; }
+th, td { border: 1px solid var(--rule); padding: 2pt 4pt; text-align: left; vertical-align: top; }
+th { background: var(--fill); font-weight: 600; }
+td.n { text-align: right; }
+td:first-child { white-space: nowrap; }
+.pass { color: var(--pass); font-weight: 700; }
+.fail { color: var(--fail); font-weight: 700; }
+.todo { background: var(--todo); padding: 0 2pt; }
+.note { color: var(--muted); font-size: 8pt; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Automation Framework Case Study: SauceDemo</h1>
+  <p class="sub">Software Testing Lab (R5CO4101L) &middot; Selenium automation + basic performance testing &middot; November 2026 &middot; github.com/Abhinavmadake/saucedemo-framework</p>
+  <p class="team"><b>Team:</b> <span>Abhinav (231070028)</span>, <span>Amit (231070020)</span>, <span>Chaitanya (231070066)</span>, <span>Prasanna (231070024)</span>, <span>Ritesh (231070053)</span>, <span>Yogesh (231070037)</span></p>
+</header>
+
+<div class="grid">
+<section>
+  <h2>Scope</h2>
+  <p>AUT: <code>https://www.saucedemo.com</code>, user <code>standard_user</code>. Nine functional requirements automated: the six mandatory ones (FR-01, 02, 07, 12, 14, 16) and three extra (FR-04, 09, 11; FR-04 is the extra negative case). Three performance requirements (NFR-01 to 03) tested with JMeter. Test cases derived with Equivalence Partitioning and Boundary Value Analysis.</p>
+
+  <h2>Framework</h2>
+  <p>Python 3.11+, Selenium 4.52, PyTest 9.2, pytest-html 4.2, webdriver-manager 4.1, Apache JMeter 5.6.3.</p>
+  <ul>
+    <li><b>Page Object Model:</b> locators and actions live in <code>pages/</code>; tests only call page methods.</li>
+    <li><b>Explicit waits only</b> (<code>WebDriverWait</code>), no <code>time.sleep</code>; waits retry when the page re-renders an element.</li>
+    <li><b>Data-driven:</b> login and postal code cases read from CSV files in <code>testdata/</code>.</li>
+    <li><b>Markers:</b> <code>smoke</code> for happy paths, <code>regression</code> for the full suite.</li>
+    <li><b>Evidence:</b> screenshot on failure (saved and embedded in the HTML report), step log per test, HTML report.</li>
+    <li><b>Traceability:</b> every case has a TC ID mapped to its FR and test function in <code>docs/traceability.csv</code>.</li>
+  </ul>
+
+  <h2>Structure</h2>
+<pre>pages/        page objects (7 pages + base page)
+tests/        one test file per module
+testdata/     CSV test data
+utils/        config, CSV loader, step logger
+docs/         test cases, defects, traceability
+performance/  JMeter plan, results, dashboard
+reports/      HTML report, screenshots, logs</pre>
+
+  <h2>How to run</h2>
+<pre>pip install -r requirements.txt
+pytest -m smoke     smoke suite
+pytest              full suite + HTML report
+
+jmeter -n                          (one command)
+  -t performance/jmx/saucedemo_weekend_lab.jmx
+  -l performance/results/results.jtl
+  -e -o performance/html_report</pre>
+</section>
+
+<section>
+  <h2>Functional results</h2>
+  <p>Run 3 Nov 2026, 19 cases in under a minute; 5 smoke tests (<code>pytest -m smoke</code>).</p>
+  <table>
+    <tr><th>FR</th><th>Requirement</th><th class="n">Cases</th><th class="n">Pass</th><th class="n">Fail</th></tr>
+    <tr><td>FR-01</td><td>Login success</td><td class="n">1</td><td class="n pass">1</td><td class="n">0</td></tr>
+    <tr><td>FR-02</td><td>Invalid password (CSV, 4 EP/BVA cases)</td><td class="n">4</td><td class="n pass">4</td><td class="n">0</td></tr>
+    <tr><td>FR-04</td><td>Blank password</td><td class="n">1</td><td class="n pass">1</td><td class="n">0</td></tr>
+    <tr><td>FR-07</td><td>Add to cart (cart size 0&rarr;1, 1&rarr;2, all 6)</td><td class="n">3</td><td class="n pass">3</td><td class="n">0</td></tr>
+    <tr><td>FR-09</td><td>Cart matches Products (2 and 6 items)</td><td class="n">2</td><td class="n pass">2</td><td class="n">0</td></tr>
+    <tr><td>FR-11</td><td>Navigate to checkout</td><td class="n">1</td><td class="n pass">1</td><td class="n">0</td></tr>
+    <tr><td>FR-12</td><td>First Name required</td><td class="n">1</td><td class="n pass">1</td><td class="n">0</td></tr>
+    <tr><td>FR-14</td><td>Postal code: 4/5/6 digits, non-numeric (CSV)</td><td class="n">5</td><td class="n pass">2</td><td class="n fail">3</td></tr>
+    <tr><td>FR-16</td><td>Finish order, cart emptied</td><td class="n">1</td><td class="n pass">1</td><td class="n">0</td></tr>
+    <tr><th colspan="2">Total</th><th class="n">19</th><th class="n pass">16</th><th class="n fail">3</th></tr>
+  </table>
+  <p class="note">The 3 failures are the FR-14 defects below; each has a screenshot in <code>reports/screenshots/</code> and in the HTML report.</p>
+
+  <h2>Performance (JMeter)</h2>
+  <p>20 users, 60 s ramp-up, 3 min, 0-500 ms think time. 10,434 requests at 58 req/s.</p>
+  <table>
+    <tr><th>NFR</th><th>Metric</th><th>Threshold</th><th class="n">Measured</th><th>Result</th></tr>
+    <tr><td>NFR-01</td><td>Login Page P95</td><td>&lt; 3.0 s</td><td class="n">0.044 s</td><td class="pass">PASS</td></tr>
+    <tr><td>NFR-02</td><td>Products Page P95</td><td>&lt; 4.0 s</td><td class="n">0.044 s</td><td class="pass">PASS</td></tr>
+    <tr><td>NFR-03</td><td>Error rate</td><td>&lt; 2 %</td><td class="n">0.60 %</td><td class="pass">PASS</td></tr>
+  </table>
+  <p class="note">All 63 errors were dropped connections; the site never returned a non-200 status. SauceDemo is a static app on GitHub Pages and login runs in the browser, so these numbers measure page delivery, not a backend.</p>
+
+  <h2>Defects</h2>
+  <table>
+    <tr><th>ID</th><th>Summary</th><th>Severity</th></tr>
+    <tr><td>DEF-14-01</td><td>4-digit postal code (1234) is accepted</td><td>Medium</td></tr>
+    <tr><td>DEF-14-02</td><td>Alphabetic postal code (abcde) is accepted</td><td>Medium</td></tr>
+    <tr><td>DEF-14-03</td><td>Mixed postal code (12ab5) is accepted</td><td>Medium</td></tr>
+  </table>
+  <p class="note">The site only checks that Postal Code is not empty; FR-14 requires a numeric code of 5 or 6 digits.</p>
+</section>
+</div>
+</body>
+</html>
