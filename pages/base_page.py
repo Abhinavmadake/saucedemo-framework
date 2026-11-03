@@ -1,4 +1,4 @@
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -13,7 +13,7 @@ class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, TIMEOUT)
+        self.wait = WebDriverWait(driver, TIMEOUT, ignored_exceptions=(StaleElementReferenceException,))
 
     def open(self):
         self.driver.get(BASE_URL + self.PATH)
@@ -35,7 +35,9 @@ class BasePage:
 
     def is_visible(self, locator, timeout=TIMEOUT):
         try:
-            WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
+            WebDriverWait(self.driver, timeout, ignored_exceptions=(StaleElementReferenceException,)).until(
+                EC.visibility_of_element_located(locator)
+            )
             return True
         except TimeoutException:
             return False
