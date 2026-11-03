@@ -1,0 +1,5 @@
+tc_id,fr_id,username,password,expected_error
+TC-02-01,FR-02,standard_user,wrong_pass,Username and password do not match any user in this service
+TC-02-02,FR-02,standard_user,SECRET_SAUCE,Username and password do not match any user in this service
+TC-02-03,FR-02,standard_user,secret_sauce ,Username and password do not match any user in this service
+TC-02-04,FR-02,standard_user,   ,Username and password do not match any user in this service
