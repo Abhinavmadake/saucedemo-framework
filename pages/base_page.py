@@ -1,12 +1,15 @@
+import time
+
 from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-from utils.config import BASE_URL, TIMEOUT
+from utils.config import BASE_URL, DEMO_DELAY, TIMEOUT
 
 
 class BasePage:
+    demo_mode = False
     PATH = ""
     TITLE_TEXT = ""
     TITLE = (By.CSS_SELECTOR, '[data-test="title"]')
@@ -16,8 +19,14 @@ class BasePage:
         self.driver = driver
         self.wait = WebDriverWait(driver, TIMEOUT, ignored_exceptions=(StaleElementReferenceException,))
 
+    def pause(self):
+        # Justified sleep: only with --demo, so a live audience can follow each action. Never used for synchronisation.
+        if BasePage.demo_mode:
+            time.sleep(DEMO_DELAY)
+
     def open(self):
         self.driver.get(BASE_URL + self.PATH)
+        self.pause()
         return self
 
     def find(self, locator):
@@ -25,11 +34,13 @@ class BasePage:
 
     def click(self, locator):
         self.wait.until(EC.element_to_be_clickable(locator)).click()
+        self.pause()
 
     def type(self, locator, text):
         field = self.find(locator)
         field.clear()
         field.send_keys(text)
+        self.pause()
 
     def text_of(self, locator):
         return self.find(locator).text

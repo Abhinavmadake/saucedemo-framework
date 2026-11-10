@@ -1,0 +1,6 @@
+tc_id,fr_id,marker,items
+TC-07-01,FR-07,smoke regression,Sauce Labs Backpack
+TC-07-02,FR-07,regression,Sauce Labs Backpack; Sauce Labs Bike Light
+TC-07-03,FR-07,regression,ALL
+TC-09-01,FR-09,smoke regression,Sauce Labs Backpack; Sauce Labs Bike Light
+TC-09-02,FR-09,regression,ALL

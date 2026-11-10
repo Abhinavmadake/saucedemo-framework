@@ -27,6 +27,7 @@ class InventoryPage(BasePage):
         if button.text == from_text:
             button.click()
         self.wait.until(lambda d: self._button(name).text == to_text)
+        self.pause()
 
     def product_names(self):
         self.find(self.ITEM)

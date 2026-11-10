@@ -7,6 +7,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
+from pages.base_page import BasePage
 from pages.inventory_page import InventoryPage
 from pages.login_page import LoginPage
 from utils import logger
@@ -17,10 +18,12 @@ SCREENSHOT_DIR = Path(__file__).resolve().parent / "reports" / "screenshots"
 
 def pytest_addoption(parser):
     parser.addoption("--headless", action="store_true", help="run Chrome without opening a window")
+    parser.addoption("--demo", action="store_true", help="pause 1 second after each browser action, for live demos")
 
 
 def pytest_configure(config):
     logger.setup_logging()
+    BasePage.demo_mode = config.getoption("--demo")
 
 
 def pytest_html_report_title(report):

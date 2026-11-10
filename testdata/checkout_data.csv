@@ -1,0 +1,7 @@
+tc_id,fr_id,marker,first_name,last_name,postal_code,expected,expected_error
+TC-12-01,FR-12,regression,,User,12345,invalid,First Name is required
+TC-14-01,FR-14,regression,Test,User,1234,invalid,
+TC-14-02,FR-14,regression,Test,User,12345,valid,
+TC-14-03,FR-14,regression,Test,User,123456,valid,
+TC-14-04,FR-14,regression,Test,User,abcde,invalid,
+TC-14-05,FR-14,regression,Test,User,12ab5,invalid,

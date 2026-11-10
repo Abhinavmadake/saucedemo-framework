@@ -1,5 +1,7 @@
-tc_id,fr_id,username,password,expected_error
-TC-02-01,FR-02,standard_user,wrong_pass,Username and password do not match any user in this service
-TC-02-02,FR-02,standard_user,SECRET_SAUCE,Username and password do not match any user in this service
-TC-02-03,FR-02,standard_user,secret_sauce ,Username and password do not match any user in this service
-TC-02-04,FR-02,standard_user,   ,Username and password do not match any user in this service
+tc_id,fr_id,marker,username,password,expected,expected_error
+TC-01-01,FR-01,smoke regression,standard_user,secret_sauce,valid,
+TC-02-01,FR-02,regression,standard_user,wrong_pass,invalid,Username and password do not match any user in this service
+TC-02-02,FR-02,regression,standard_user,SECRET_SAUCE,invalid,Username and password do not match any user in this service
+TC-02-03,FR-02,regression,standard_user,secret_sauce ,invalid,Username and password do not match any user in this service
+TC-02-04,FR-02,regression,standard_user,   ,invalid,Username and password do not match any user in this service
+TC-04-01,FR-04,regression,standard_user,,invalid,Password is required
