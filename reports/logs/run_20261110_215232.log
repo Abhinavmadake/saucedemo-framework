@@ -1,0 +1,90 @@
+2026-11-10 21:52:32 | test_cart_case[TC-07-01] | STATUS | START
+2026-11-10 21:52:40 | test_cart_case[TC-07-01] | STEP   | Note the price of 'Sauce Labs Backpack' on Products, then click Add to cart
+2026-11-10 21:52:40 | test_cart_case[TC-07-01] | STEP   | Open the cart
+2026-11-10 21:52:41 | test_cart_case[TC-07-01] | STATUS | PASSED
+2026-11-10 21:52:41 | test_cart_case[TC-07-02] | STATUS | START
+2026-11-10 21:52:43 | test_cart_case[TC-07-02] | STEP   | Note the price of 'Sauce Labs Backpack' on Products, then click Add to cart
+2026-11-10 21:52:43 | test_cart_case[TC-07-02] | STEP   | Note the price of 'Sauce Labs Bike Light' on Products, then click Add to cart
+2026-11-10 21:52:43 | test_cart_case[TC-07-02] | STEP   | Open the cart
+2026-11-10 21:52:43 | test_cart_case[TC-07-02] | STATUS | PASSED
+2026-11-10 21:52:43 | test_cart_case[TC-07-03] | STATUS | START
+2026-11-10 21:52:45 | test_cart_case[TC-07-03] | STEP   | Note the price of 'Sauce Labs Backpack' on Products, then click Add to cart
+2026-11-10 21:52:45 | test_cart_case[TC-07-03] | STEP   | Note the price of 'Sauce Labs Bike Light' on Products, then click Add to cart
+2026-11-10 21:52:45 | test_cart_case[TC-07-03] | STEP   | Note the price of 'Sauce Labs Bolt T-Shirt' on Products, then click Add to cart
+2026-11-10 21:52:45 | test_cart_case[TC-07-03] | STEP   | Note the price of 'Sauce Labs Fleece Jacket' on Products, then click Add to cart
+2026-11-10 21:52:45 | test_cart_case[TC-07-03] | STEP   | Note the price of 'Sauce Labs Onesie' on Products, then click Add to cart
+2026-11-10 21:52:45 | test_cart_case[TC-07-03] | STEP   | Note the price of 'Test.allTheThings() T-Shirt (Red)' on Products, then click Add to cart
+2026-11-10 21:52:45 | test_cart_case[TC-07-03] | STEP   | Open the cart
+2026-11-10 21:52:46 | test_cart_case[TC-07-03] | STATUS | PASSED
+2026-11-10 21:52:46 | test_cart_case[TC-09-01] | STATUS | START
+2026-11-10 21:52:48 | test_cart_case[TC-09-01] | STEP   | Note the price of 'Sauce Labs Backpack' on Products, then click Add to cart
+2026-11-10 21:52:48 | test_cart_case[TC-09-01] | STEP   | Note the price of 'Sauce Labs Bike Light' on Products, then click Add to cart
+2026-11-10 21:52:48 | test_cart_case[TC-09-01] | STEP   | Open the cart
+2026-11-10 21:52:48 | test_cart_case[TC-09-01] | STATUS | PASSED
+2026-11-10 21:52:48 | test_cart_case[TC-09-02] | STATUS | START
+2026-11-10 21:52:49 | test_cart_case[TC-09-02] | STEP   | Note the price of 'Sauce Labs Backpack' on Products, then click Add to cart
+2026-11-10 21:52:49 | test_cart_case[TC-09-02] | STEP   | Note the price of 'Sauce Labs Bike Light' on Products, then click Add to cart
+2026-11-10 21:52:49 | test_cart_case[TC-09-02] | STEP   | Note the price of 'Sauce Labs Bolt T-Shirt' on Products, then click Add to cart
+2026-11-10 21:52:50 | test_cart_case[TC-09-02] | STEP   | Note the price of 'Sauce Labs Fleece Jacket' on Products, then click Add to cart
+2026-11-10 21:52:50 | test_cart_case[TC-09-02] | STEP   | Note the price of 'Sauce Labs Onesie' on Products, then click Add to cart
+2026-11-10 21:52:50 | test_cart_case[TC-09-02] | STEP   | Note the price of 'Test.allTheThings() T-Shirt (Red)' on Products, then click Add to cart
+2026-11-10 21:52:50 | test_cart_case[TC-09-02] | STEP   | Open the cart
+2026-11-10 21:52:50 | test_cart_case[TC-09-02] | STATUS | PASSED
+2026-11-10 21:52:50 | test_checkout_flow_case[TC-11-01] | STATUS | START
+2026-11-10 21:52:52 | test_checkout_flow_case[TC-11-01] | STEP   | Click Add to cart for 'Sauce Labs Backpack'
+2026-11-10 21:52:52 | test_checkout_flow_case[TC-11-01] | STEP   | Open the cart
+2026-11-10 21:52:52 | test_checkout_flow_case[TC-11-01] | STEP   | Click Checkout
+2026-11-10 21:52:52 | test_checkout_flow_case[TC-11-01] | STATUS | PASSED
+2026-11-10 21:52:52 | test_checkout_flow_case[TC-16-01] | STATUS | START
+2026-11-10 21:52:53 | test_checkout_flow_case[TC-16-01] | STEP   | Click Add to cart for 'Sauce Labs Backpack'
+2026-11-10 21:52:54 | test_checkout_flow_case[TC-16-01] | STEP   | Open the cart
+2026-11-10 21:52:54 | test_checkout_flow_case[TC-16-01] | STEP   | Click Checkout
+2026-11-10 21:52:54 | test_checkout_flow_case[TC-16-01] | STEP   | Fill in 'Test' / 'User' / '12345'
+2026-11-10 21:52:54 | test_checkout_flow_case[TC-16-01] | STEP   | Click Continue
+2026-11-10 21:52:54 | test_checkout_flow_case[TC-16-01] | STEP   | Click Finish
+2026-11-10 21:52:54 | test_checkout_flow_case[TC-16-01] | STATUS | PASSED
+2026-11-10 21:52:54 | test_checkout_info_case[TC-12-01] | STATUS | START
+2026-11-10 21:52:56 | test_checkout_info_case[TC-12-01] | STEP   | Enter '' / 'User' / '12345'
+2026-11-10 21:52:56 | test_checkout_info_case[TC-12-01] | STEP   | Click Continue
+2026-11-10 21:52:56 | test_checkout_info_case[TC-12-01] | STATUS | PASSED
+2026-11-10 21:52:56 | test_checkout_info_case[TC-14-01] | STATUS | START
+2026-11-10 21:52:58 | test_checkout_info_case[TC-14-01] | STEP   | Enter 'Test' / 'User' / '1234'
+2026-11-10 21:52:58 | test_checkout_info_case[TC-14-01] | STEP   | Click Continue
+2026-11-10 21:53:02 | test_checkout_info_case[TC-14-01] | STATUS | screenshot saved: reports/screenshots/test_checkout_info_case_TC-14-01__20261110_215301.png
+2026-11-10 21:53:02 | test_checkout_info_case[TC-14-01] | STATUS | FAILED
+2026-11-10 21:53:02 | test_checkout_info_case[TC-14-02] | STATUS | START
+2026-11-10 21:53:04 | test_checkout_info_case[TC-14-02] | STEP   | Enter 'Test' / 'User' / '12345'
+2026-11-10 21:53:04 | test_checkout_info_case[TC-14-02] | STEP   | Click Continue
+2026-11-10 21:53:04 | test_checkout_info_case[TC-14-02] | STATUS | PASSED
+2026-11-10 21:53:04 | test_checkout_info_case[TC-14-03] | STATUS | START
+2026-11-10 21:53:06 | test_checkout_info_case[TC-14-03] | STEP   | Enter 'Test' / 'User' / '123456'
+2026-11-10 21:53:06 | test_checkout_info_case[TC-14-03] | STEP   | Click Continue
+2026-11-10 21:53:07 | test_checkout_info_case[TC-14-03] | STATUS | PASSED
+2026-11-10 21:53:07 | test_checkout_info_case[TC-14-04] | STATUS | START
+2026-11-10 21:53:09 | test_checkout_info_case[TC-14-04] | STEP   | Enter 'Test' / 'User' / 'abcde'
+2026-11-10 21:53:09 | test_checkout_info_case[TC-14-04] | STEP   | Click Continue
+2026-11-10 21:53:12 | test_checkout_info_case[TC-14-04] | STATUS | screenshot saved: reports/screenshots/test_checkout_info_case_TC-14-04__20261110_215312.png
+2026-11-10 21:53:12 | test_checkout_info_case[TC-14-04] | STATUS | FAILED
+2026-11-10 21:53:12 | test_checkout_info_case[TC-14-05] | STATUS | START
+2026-11-10 21:53:13 | test_checkout_info_case[TC-14-05] | STEP   | Enter 'Test' / 'User' / '12ab5'
+2026-11-10 21:53:13 | test_checkout_info_case[TC-14-05] | STEP   | Click Continue
+2026-11-10 21:53:17 | test_checkout_info_case[TC-14-05] | STATUS | screenshot saved: reports/screenshots/test_checkout_info_case_TC-14-05__20261110_215316.png
+2026-11-10 21:53:17 | test_checkout_info_case[TC-14-05] | STATUS | FAILED
+2026-11-10 21:53:17 | test_login_case[TC-01-01] | STATUS | START
+2026-11-10 21:53:18 | test_login_case[TC-01-01] | STEP   | Log in with username 'standard_user' and password 'secret_sauce'
+2026-11-10 21:53:18 | test_login_case[TC-01-01] | STATUS | PASSED
+2026-11-10 21:53:18 | test_login_case[TC-02-01] | STATUS | START
+2026-11-10 21:53:19 | test_login_case[TC-02-01] | STEP   | Log in with username 'standard_user' and password 'wrong_pass'
+2026-11-10 21:53:19 | test_login_case[TC-02-01] | STATUS | PASSED
+2026-11-10 21:53:19 | test_login_case[TC-02-02] | STATUS | START
+2026-11-10 21:53:20 | test_login_case[TC-02-02] | STEP   | Log in with username 'standard_user' and password 'SECRET_SAUCE'
+2026-11-10 21:53:21 | test_login_case[TC-02-02] | STATUS | PASSED
+2026-11-10 21:53:21 | test_login_case[TC-02-03] | STATUS | START
+2026-11-10 21:53:22 | test_login_case[TC-02-03] | STEP   | Log in with username 'standard_user' and password 'secret_sauce '
+2026-11-10 21:53:22 | test_login_case[TC-02-03] | STATUS | PASSED
+2026-11-10 21:53:22 | test_login_case[TC-02-04] | STATUS | START
+2026-11-10 21:53:23 | test_login_case[TC-02-04] | STEP   | Log in with username 'standard_user' and password '   '
+2026-11-10 21:53:23 | test_login_case[TC-02-04] | STATUS | PASSED
+2026-11-10 21:53:23 | test_login_case[TC-04-01] | STATUS | START
+2026-11-10 21:53:24 | test_login_case[TC-04-01] | STEP   | Log in with username 'standard_user' and password ''
+2026-11-10 21:53:24 | test_login_case[TC-04-01] | STATUS | PASSED
